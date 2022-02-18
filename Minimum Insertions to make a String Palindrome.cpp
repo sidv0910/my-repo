@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int minIns(string s)
+int main() 
 {
+    string s;
+    cin >> s;
     int n = s.length();
     int dp[n][n] = {0};
     for (int k = 1; k < n; k++)
@@ -15,13 +17,6 @@ int minIns(string s)
                 dp[i][j] = 1 + min(dp[i][j-1], dp[i+1][j]);
         }
     }
-    return dp[0][n-1];
-}
-
-int main() 
-{
-    string s;
-    cin >> s;
-    cout << minIns(s) << endl;
+    cout << dp[0][n-1] << endl;
     return 0;
 }
